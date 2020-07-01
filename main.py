@@ -35,7 +35,7 @@ def parse_args():
     parser.add_argument('--n_critic', type=int, default=1, help='The number of critic')
     parser.add_argument('--sn', type=str2bool, default=True, help='using spectral norm')
 
-    parser.add_argument('--img_size', type=int, default=256, help='The size of image')
+    parser.add_argument('--img_size', type=int, default=(256, 128), help='The size of image')
     parser.add_argument('--img_ch', type=int, default=3, help='The size of image channel')
     parser.add_argument('--augment_flag', type=str2bool, default=True, help='Image augmentation use or not')
 

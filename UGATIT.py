@@ -478,8 +478,8 @@ class UGATIT(object) :
 
         else :
             """ Test """
-            self.test_domain_A = tf.placeholder(tf.float32, [1, self.img_size, self.img_size, self.img_ch], name='test_domain_A')
-            self.test_domain_B = tf.placeholder(tf.float32, [1, self.img_size, self.img_size, self.img_ch], name='test_domain_B')
+            self.test_domain_A = tf.placeholder(tf.float32, [1, self.img_size[0], self.img_size[1], self.img_ch], name='test_domain_A')
+            self.test_domain_B = tf.placeholder(tf.float32, [1, self.img_size[0], self.img_size[1], self.img_ch], name='test_domain_B')
 
 
             self.test_fake_B, _ = self.generate_a2b(self.test_domain_A)
@@ -643,9 +643,9 @@ class UGATIT(object) :
             index.write("<td>%s</td>" % os.path.basename(image_path))
 
             index.write("<td><img src='%s' width='%d' height='%d'></td>" % (sample_file if os.path.isabs(sample_file) else (
-                '../..' + os.path.sep + sample_file), self.img_size, self.img_size))
+                '../..' + os.path.sep + sample_file), self.img_size[0], self.img_size[1]))
             index.write("<td><img src='%s' width='%d' height='%d'></td>" % (image_path if os.path.isabs(image_path) else (
-                '../..' + os.path.sep + image_path), self.img_size, self.img_size))
+                '../..' + os.path.sep + image_path), self.img_size[0], self.img_size[1]))
             index.write("</tr>")
 
         for sample_file  in test_B_files : # B -> A
@@ -658,8 +658,8 @@ class UGATIT(object) :
             save_images(fake_img, [1, 1], image_path)
             index.write("<td>%s</td>" % os.path.basename(image_path))
             index.write("<td><img src='%s' width='%d' height='%d'></td>" % (sample_file if os.path.isabs(sample_file) else (
-                    '../..' + os.path.sep + sample_file), self.img_size, self.img_size))
+                    '../..' + os.path.sep + sample_file), self.img_size[0], self.img_size[1]))
             index.write("<td><img src='%s' width='%d' height='%d'></td>" % (image_path if os.path.isabs(image_path) else (
-                    '../..' + os.path.sep + image_path), self.img_size, self.img_size))
+                    '../..' + os.path.sep + image_path), self.img_size[0], self.img_size[1]))
             index.write("</tr>")
         index.close()
