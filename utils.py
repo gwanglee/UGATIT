@@ -18,7 +18,8 @@ class ImageData:
         img = tf.cast(img, tf.float32) / 127.5 - 1
 
         if self.augment_flag :
-            augment_size = self.load_size + (30 if self.load_size == 256 else 15)
+            # augment_size = self.load_size + (30 if self.load_size == 256 else 15)
+            augment_size = 15
             p = random.random()
             if p > 0.5:
                 img = augmentation(img, augment_size)
