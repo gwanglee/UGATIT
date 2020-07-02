@@ -26,7 +26,7 @@ class ImageData:
 
         return img
 
-def load_test_data(image_path, size=(256, 128)):
+def load_test_data(image_path, size=(128, 256)):
     img = cv2.imread(image_path, flags=cv2.IMREAD_COLOR)
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
