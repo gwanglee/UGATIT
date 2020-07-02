@@ -26,11 +26,11 @@ class ImageData:
 
         return img
 
-def load_test_data(image_path, size=256):
+def load_test_data(image_path, size=(256, 128)):
     img = cv2.imread(image_path, flags=cv2.IMREAD_COLOR)
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
-    img = cv2.resize(img, dsize=(size, size))
+    img = cv2.resize(img, dsize=size)
 
     img = np.expand_dims(img, axis=0)
     img = img/127.5 - 1
